@@ -41,10 +41,12 @@ public class tAgency {
 
     private String zone;
 
+    private String state;
+
     public tAgency() {
     }
 
-    public tAgency(String  date, Boolean type, UUID id, String name, String dirr, List items, Float weigth, String postal, Integer units, String zone) {
+    public tAgency(String  date, Boolean type, UUID id, String name, String dirr, List items, Float weigth, String postal, Integer units, String zone, String state) {
         this.date = date;
         this.type = type;
         this.id = id;
@@ -55,6 +57,7 @@ public class tAgency {
         this.postal = postal;
         this.units = units;
         this.zone = zone;
+        this.state = state;
     }
 
     public String  getDate() {
@@ -137,5 +140,12 @@ public class tAgency {
         zone = zone;
     }
 
+    public String getState() {
+        return state;
+    }
+
+    public void setState(String state) {
+        this.state = state;
+    }
 
 }

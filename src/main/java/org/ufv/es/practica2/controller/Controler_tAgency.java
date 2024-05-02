@@ -111,6 +111,12 @@ public class Controler_tAgency {
                 Save.setName(newRequest.getName());
                 Save.setDirr(newRequest.getDirr());
 
+                List<Tuple> before_items = check_stock(newRequest.getItems());
+                Integer before_units = 0;
+                for (Tuple item : before_items) {
+                    before_units += item.getQuantity();
+                }
+
                 List<Tuple> items = check_stock(newRequest.getItems());
                 Save.setItems(items);
 
@@ -119,11 +125,31 @@ public class Controler_tAgency {
                 for (Tuple item : items) {
                     units += item.getQuantity();
                 }
+                if (before_units == units) {
+                    Save.setState("Listo y completo");
+                } else {
+                    Save.setState("Listo y faltante");
+                }
 
                 Save.setPostal(newRequest.getPostal());
                 Save.setUnits(units);
 
 
+
+                /*
+                Estados:
+                    User, el que hace la peticion
+                        Listo y completo
+                        Listo y faltante
+                    Warehouse, el que lo envia
+                        Enviado y completo
+                        Enviado y faltante
+                    User, el que lo recibbe
+                        Recibido y completo
+                        Recibido y faltante
+                    User?
+                        Perdido
+                 */
         }
 
     }
