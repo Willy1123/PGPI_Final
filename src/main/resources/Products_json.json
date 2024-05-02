@@ -7,6 +7,13 @@
     "expiration_date": "01-06-2025"
   },
   {
+    "id": "23455491-c091-4a4f-babe-12a4fa29c452",
+    "name": "Camisetas",
+    "stock": 250,
+    "description": "Camisetas térmicas para el frio",
+    "expiration_date": ""
+  },
+  {
     "id": "2e32c1d7-847b-4ade-8cca-9257b39b7231",
     "name": "Botiquín de primeros auxilios",
     "stock": 100,
@@ -38,6 +45,13 @@
     "stock": 400,
     "description": "Incluye jabón, pasta dental, cepillos de dientes, y desodorante.",
     "expiration_date": "30-09-2025"
+  },
+  {
+    "id": "dc70dccd-f380-48e5-8273-0ccdce1e4569",
+    "name": "Bufandas",
+    "stock": 600,
+    "description": "bufandas de lana para sitios fríos",
+    "expiration_date": ""
   },
   {
     "id": "ed93d1e2-1b93-4326-be3d-3ae2505f3e63",

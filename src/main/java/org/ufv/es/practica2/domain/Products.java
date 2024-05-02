@@ -3,6 +3,7 @@ package org.ufv.es.practica2.domain;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.annotations.SerializedName;
+import org.ufv.es.practica2.Config;
 
 import java.io.FileWriter;
 import java.io.IOException;
@@ -86,14 +87,14 @@ public class Products {
         Collections.sort(listaProducts, new Comparator<Products>() {
             @Override
             public int compare(Products o1, Products o2) {
-                return String.valueOf(o1.getId()).compareTo(String.valueOf(o2.getId()));
+                return String.valueOf(o1.getName()).compareTo(String.valueOf(o2.getName()));
             }
         });
         //guardamos la lista ordenada en el archivo MsCode_json.json
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
         String json = gson.toJson(listaProducts);
         try {
-            FileWriter writer = new FileWriter("./src/main/resources/Products_json.json");
+            FileWriter writer = new FileWriter(Config.Ruta_ProductsJson_bkp);
             writer.write(json);
             writer.close();
         } catch (IOException e) {

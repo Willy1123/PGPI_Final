@@ -75,8 +75,8 @@ public class Controller_Products {
 
 
 
-    @GetMapping("/Products/IdCode")
-    public List<Products> IdCode() {
+    @GetMapping("/Products/Name")
+    public List<Products> procutsByName() {
         List<Products> lista1;
         List<Products> lista2;
         Products products = new Products();

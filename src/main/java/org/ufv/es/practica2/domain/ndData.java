@@ -3,6 +3,7 @@ package org.ufv.es.practica2.domain;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.annotations.SerializedName;
+import org.ufv.es.practica2.Config;
 
 import java.io.FileWriter;
 import java.io.IOException;
@@ -133,7 +134,7 @@ public class ndData {
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
         String json = gson.toJson(listaDatos);
         try {
-            FileWriter writer = new FileWriter("./src/main/resources/MsCode_json.json");
+            FileWriter writer = new FileWriter(Config.Ruta_ndDataJson_bkp);
             writer.write(json);
             writer.close();
         } catch (IOException e) {

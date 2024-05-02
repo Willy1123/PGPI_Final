@@ -1,72 +1,82 @@
 [
-    {
-      "id": "1d2b1951-7428-4847-ba75-0aa1cabcb796",
-      "name": "Agua embotellada",
-      "stock": 500,
-      "description": "Agua purificada en botellas de 1 litro.",
-      "expiration_date": "01-06-2025"
-    },
-    {
-      "id": "f26f6dfc-25de-434f-96df-930c7c74b259",
-      "name": "Comida enlatada",
-      "stock": 300,
-      "description": "Conservas de alimentos variados como frijoles, maíz y sopas.",
-      "expiration_date": "31-12-2024"
-    },
-    {
-      "id": "2e32c1d7-847b-4ade-8cca-9257b39b7231",
-      "name": "Botiquín de primeros auxilios",
-      "stock": 100,
-      "description": "Contiene suministros médicos básicos como vendas, alcohol y tijeras.",
-      "expiration_date": "01-01-2026"
-    },
-    {
-      "id": "316a8d7d-3656-48e3-baeb-6dce28bfabca",
-      "name": "Mantas",
-      "stock": 200,
-      "description": "Mantas de lana para uso en climas fríos.",
-      "expiration_date": null
-    },
-    {
-      "id": "47c9b3ed-e7bd-46ab-8f1b-d559e3abb429",
-      "name": "Ropa de abrigo",
-      "stock": 150,
-      "description": "Conjuntos de ropa para clima frío, incluyendo chaquetas y guantes.",
-      "expiration_date": null
-    },
-    {
-      "id": "a3a24158-3970-4a21-98f1-659a3bc1af18",
-      "name": "Artículos de higiene personal",
-      "stock": 400,
-      "description": "Incluye jabón, pasta dental, cepillos de dientes, y desodorante.",
-      "expiration_date": "30-09-2025"
-    },
-    {
-      "id": "edaabb51-d271-41e9-ad25-651cbf7979da",
-      "name": "Linternas",
-      "stock": 80,
-      "description": "Linternas portátiles con baterías incluidas.",
-      "expiration_date": null
-    },
-    {
-      "id": "57b9622c-d8fe-44a1-8ca9-6af6f55f6ec1",
-      "name": "Baterías",
-      "stock": 120,
-      "description": "Baterías alcalinas AA para dispositivos electrónicos.",
-      "expiration_date": "15-03-2027"
-    },
-    {
-      "id": "f60a49e0-2b42-49dd-b892-14e82ad3fa42",
-      "name": "Pañales",
-      "stock": 250,
-      "description": "Pañales desechables para bebés y niños pequeños.",
-      "expiration_date": "15-10-2025"
-    },
-    {
-      "id": "ed93d1e2-1b93-4326-be3d-3ae2505f3e63",
-      "name": "Almohadas",
-      "stock": 90,
-      "description": "Almohadas de algodón para mayor comodidad.",
-      "expiration_date": null
-    }
-  ]
+  {
+    "id": "1d2b1951-7428-4847-ba75-0aa1cabcb796",
+    "name": "Agua embotellada",
+    "stock": 500,
+    "description": "Agua purificada en botellas de 1 litro.",
+    "expiration_date": "01-06-2025"
+  },
+  {
+    "id": "f26f6dfc-25de-434f-96df-930c7c74b259",
+    "name": "Comida enlatada",
+    "stock": 300,
+    "description": "Conservas de alimentos variados como frijoles, maíz y sopas.",
+    "expiration_date": "31-12-2024"
+  },
+  {
+    "id": "2e32c1d7-847b-4ade-8cca-9257b39b7231",
+    "name": "Botiquín de primeros auxilios",
+    "stock": 100,
+    "description": "Contiene suministros médicos básicos como vendas, alcohol y tijeras.",
+    "expiration_date": "01-01-2026"
+  },
+  {
+    "id": "316a8d7d-3656-48e3-baeb-6dce28bfabca",
+    "name": "Mantas",
+    "stock": 200,
+    "description": "Mantas de lana para uso en climas fríos."
+  },
+  {
+    "id": "47c9b3ed-e7bd-46ab-8f1b-d559e3abb429",
+    "name": "Ropa de abrigo",
+    "stock": 150,
+    "description": "Conjuntos de ropa para clima frío, incluyendo chaquetas y guantes."
+  },
+  {
+    "id": "a3a24158-3970-4a21-98f1-659a3bc1af18",
+    "name": "Artículos de higiene personal",
+    "stock": 400,
+    "description": "Incluye jabón, pasta dental, cepillos de dientes, y desodorante.",
+    "expiration_date": "30-09-2025"
+  },
+  {
+    "id": "edaabb51-d271-41e9-ad25-651cbf7979da",
+    "name": "Linternas",
+    "stock": 80,
+    "description": "Linternas portátiles con baterías incluidas."
+  },
+  {
+    "id": "57b9622c-d8fe-44a1-8ca9-6af6f55f6ec1",
+    "name": "Baterías",
+    "stock": 120,
+    "description": "Baterías alcalinas AA para dispositivos electrónicos.",
+    "expiration_date": "15-03-2027"
+  },
+  {
+    "id": "f60a49e0-2b42-49dd-b892-14e82ad3fa42",
+    "name": "Pañales",
+    "stock": 250,
+    "description": "Pañales desechables para bebés y niños pequeños.",
+    "expiration_date": "15-10-2025"
+  },
+  {
+    "id": "ed93d1e2-1b93-4326-be3d-3ae2505f3e63",
+    "name": "Almohadas",
+    "stock": 90,
+    "description": "Almohadas de algodón para mayor comodidad."
+  },
+  {
+    "id": "23455491-c091-4a4f-babe-12a4fa29c452",
+    "name": "Camisetas",
+    "stock": 250,
+    "description": "Camisetas térmicas para el frio",
+    "expiration_date": ""
+  },
+  {
+    "id": "dc70dccd-f380-48e5-8273-0ccdce1e4569",
+    "name": "Bufandas",
+    "stock": 600,
+    "description": "bufandas de lana para sitios fríos",
+    "expiration_date": ""
+  }
+]

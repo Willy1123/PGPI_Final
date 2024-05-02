@@ -2,16 +2,16 @@
   {
     "username": "Admin",
     "password": "12345",
-    "Role": "admin"
+    "role": "admin"
   },
   {
     "username": "User",
     "password": "1234",
-    "Role": "user"
+    "role": "user"
   },
   {
     "username": "Warehouse",
     "password": "123",
-    "Role": "warehouse"
+    "role": "warehouse"
   }
 ]
