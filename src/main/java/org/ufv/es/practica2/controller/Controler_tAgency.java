@@ -81,52 +81,50 @@ public class Controler_tAgency {
         LocalDateTime now = LocalDateTime.now();
         tAgency Save = new tAgency();
 
-        switch(newRequest.getName()) {
+        switch (newRequest.getName()) {
             case "DHL":
-                Save.setDate( now.format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss")) );
+                Save.setDate(now.format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss")));
                 break;
             case "UPS":
                 List<ndData> pobs = new LectorJSON().leerJSON_ndData(Config.Ruta_ndDataJson);
-                for(int i=0;i<pobs.size();i++) {
+                for (int i = 0; i < pobs.size(); i++) {
                     if (pobs.get(i).getMsCode().equals(newRequest.getName())) {
                         now = now.plusDays((int) pobs.get(i).getEstimate().floatValue());
                     }
                 }
                 if (newRequest.getType() == Boolean.FALSE) {
-                    Save.setDate( now.plusDays(3).format(DateTimeFormatter.ofPattern("dd/MM/yyyy")) );
+                    Save.setDate(now.plusDays(3).format(DateTimeFormatter.ofPattern("dd/MM/yyyy")));
                 } else {
-                    Save.setDate( now.plusDays(1).format(DateTimeFormatter.ofPattern("dd/MM/yyyy")) );
+                    Save.setDate(now.plusDays(1).format(DateTimeFormatter.ofPattern("dd/MM/yyyy")));
                 }
                 break;
             case "FEDEX":
-                Save.setDate( now.format(DateTimeFormatter.ofPattern("dd/MM/yyyy")) );
+                Save.setDate(now.format(DateTimeFormatter.ofPattern("dd/MM/yyyy")));
                 break;
             default:
                 System.out.println("Agencia de transporte mal especificada, se guardará solo la fecha y hora de pedido");
-                Save.setDate( now.format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss")) );
+                Save.setDate(now.format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss")));
 
 
-        Save.setType(newRequest.getType());
-        Save.setId(UUID.randomUUID());
-        Save.setName(newRequest.getName());
-        Save.setDirr(newRequest.getDirr());
+                Save.setType(newRequest.getType());
+                Save.setId(UUID.randomUUID());
+                Save.setName(newRequest.getName());
+                Save.setDirr(newRequest.getDirr());
 
-        List<Tuple> items = check_stock(newRequest.getItems());
-        Save.setItems(items);
+                List<Tuple> items = check_stock(newRequest.getItems());
+                Save.setItems(items);
 
-        Integer units = 0;
-        Float weigth = Float.valueOf(0);
-        for (Tuple item : items) {
-            units += item.getQuantity();
+                Integer units = 0;
+                Float weigth = Float.valueOf(0);
+                for (Tuple item : items) {
+                    units += item.getQuantity();
+                }
+
+                Save.setPostal(newRequest.getPostal());
+                Save.setUnits(units);
+
+
         }
 
-        Save.setPostal(newRequest.getPostal());
-        Save.setUnits(units);
-
-
-
-
     }
-
-
 }
