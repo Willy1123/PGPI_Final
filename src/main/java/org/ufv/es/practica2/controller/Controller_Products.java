@@ -16,20 +16,22 @@ import java.util.UUID;
 public class Controller_Products {
 
     @GetMapping("/Products")
-    public List<ndData> ndData() {
-        List<ndData> listadatos;
-        listadatos = new LectorJSON().leerJSON_ndData(Config.Ruta_ProductsJson);
+    public List<Products> products() {
+        List<Products> listadatos;
+        listadatos = new LectorJSON().leerJSON_Products(Config.Ruta_ProductsJson);
         return listadatos;
     }
 
     @PutMapping("/Products/{id}")
     public void changeProduct(@PathVariable int id, @RequestBody Products prodcuts) throws IOException {
         List<Products> listadatos;
-        listadatos = new LectorJSON().leerJSON_ndData(Config.Ruta_ProductsJson);
-        int aux = prodcuts.getId();
+        listadatos = new LectorJSON().leerJSON_Products(Config.Ruta_ProductsJson);
+
+
+        UUID aux = prodcuts.getId();
         //cambio el elemento de la lista
             for(int i=0;i<listadatos.size();i++) {
-                if (listadatos.get(i).getId() == (id)) {
+                if (listadatos.get(i).getId().equals(id)) {
                     listadatos.set(i, prodcuts);
                 }
             }
@@ -45,16 +47,7 @@ public class Controller_Products {
     public void addProduct(@RequestBody Products newProduct) throws IOException {
         List<Products> listadatos;
         listadatos = new LectorJSON().leerJSON_Products(Config.Ruta_ProductsJson);
-
-        Random random = new Random();
-        boolean unique;
-
-        // Mantén intentando hasta obtener un ID que no esté ya en listadatos
-        do {
-            int newId = random.nextInt(100); // Genera un número aleatorio entre 0 y 99
-            unique = listadatos.stream().noneMatch(p -> p.getId() == newId);
-            newProduct.setId(newId);
-        } while (!unique);
+        newProduct.setId();
 
         // agregar el nuevo elemento a la lista
         listadatos.add(newProduct);
@@ -71,7 +64,7 @@ public class Controller_Products {
         listadatos = new LectorJSON().leerJSON_Products(Config.Ruta_ProductsJson);
         // encontrar y eliminar el elemento de la lista
         for(int i=0;i<listadatos.size();i++) {
-            if (listadatos.get(i).getId() == (id)) {
+            if (listadatos.get(i).getId().equals(id)) {
                 listadatos.remove(i);
             }
         }

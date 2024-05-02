@@ -14,7 +14,7 @@ import java.util.UUID;
 public class Products {
     //Creamos los atributos de la clase ndData
     @SerializedName("id")
-    private int id;
+    private UUID id;
     @SerializedName("name")
     private String name;
 
@@ -31,7 +31,7 @@ public class Products {
     public Products() {
     }
 
-    public Products(int id, String name, int stock, String description, String expiration_date) {
+    public Products(UUID id, String name, int stock, String description, String expiration_date) {
         this.id = id;
         this.name = name;
         this.stock = stock;
@@ -39,12 +39,12 @@ public class Products {
         this.expiration_date = expiration_date;
     }
 
-    public int getId() {
+    public UUID getId() {
         return id;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setId() {
+        this.id=UUID.randomUUID();
     }
 
     public String getName() {
