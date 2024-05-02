@@ -3,6 +3,7 @@ package org.ufv.es.practica2;
 import com.google.gson.Gson;
 import org.ufv.es.practica2.domain.Products;
 import org.ufv.es.practica2.domain.ndData;
+import org.ufv.es.practica2.domain.Accounts;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -78,6 +79,29 @@ public class LectorJSON {
         }
         // Devuelve la lista de objetos ndData
         return listaDatosPr;
+    }
+
+    public static List readJSON_accounts(String fileName) {
+        String json = "";
+
+        try {
+            BufferedReader br = new BufferedReader(new FileReader(fileName));
+            String line;
+            while((line = br.readLine()) != null){
+                json += line;
+            }
+            br.close();
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+        Gson gson = new Gson();
+        Accounts[] accounts = gson.fromJson(json, Accounts[].class);
+        List<Accounts> accountsList = new ArrayList<>();
+        for(int i = 0; i < accounts.length; i++){
+            accountsList.add(accounts[i]);
+        }
+        return accountsList;
     }
 
 }
