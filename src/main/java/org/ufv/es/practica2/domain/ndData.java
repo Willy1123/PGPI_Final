@@ -1,4 +1,4 @@
-package org.ufv.es.practica2;
+package org.ufv.es.practica2.domain;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -119,7 +119,7 @@ public class ndData {
     public void setFlag(String flag) {
         this.flag = flag;
     }
-    static void ordenarporMsCode(List<ndData> listaDatos){
+    public static void ordenarporMsCode(List<ndData> listaDatos){
         //leemos el archivo cp-national-datafile.json y creamos el archivo MsCode_json.json con los datos ordenados por MsCode
 
         //ordenamos la lista por MsCode

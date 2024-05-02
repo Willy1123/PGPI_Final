@@ -1,5 +1,7 @@
 package org.ufv.es.practica2;
 
+import org.ufv.es.practica2.domain.ndData;
+
 public class Parser {
 
     public static ndData Separar(String listaDatos){

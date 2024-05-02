@@ -1,6 +1,8 @@
 package org.ufv.es.practica2;
 
 import org.junit.jupiter.api.Test;
+import org.ufv.es.practica2.controller.Controller_ndData;
+import org.ufv.es.practica2.domain.ndData;
 
 import java.io.IOException;
 import java.util.List;
@@ -8,12 +10,12 @@ import java.util.UUID;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class ControllerTest {
+class ControllerNdDataTest {
 
     @Test
     void ndData() {
-        Controller controller = new Controller();
-        List<ndData> result = controller.ndData();
+        Controller_ndData controllerNdData = new Controller_ndData();
+        List<ndData> result = controllerNdData.ndData();
         assertNotNull(result);
         assertTrue(result instanceof List);
         assertTrue(result.get(0) instanceof ndData);
@@ -21,7 +23,7 @@ class ControllerTest {
     @Test
     void cambiarndData() throws IOException {
         // Crear una instancia de la clase Controller
-        Controller controller = new Controller();
+        Controller_ndData controllerNdData = new Controller_ndData();
 
         // Crear un ID único para la prueba
         UUID id = UUID.fromString("ce39358c-9312-457d-b57c-2b7f823042d9"); // Utilizo un ID existente
@@ -38,9 +40,9 @@ class ControllerTest {
         testData.setUpperCIB(15.4f);
         testData.setFlag("");
         // Llamar al método cambiarndData() con el ID y los datos de prueba
-        controller.cambiarndData(id, testData);
+        controllerNdData.cambiarndData(id, testData);
         // Recuperar los datos actualizados utilizando el método ndData()
-        List<ndData> result = controller.ndData();
+        List<ndData> result = controllerNdData.ndData();
         // Verificar que los datos recuperados coinciden con los datos de prueba
         boolean isUpdated = false;
         for (int i = 0; i < result.size(); i++) {
@@ -56,14 +58,14 @@ class ControllerTest {
     }
     @Test
     void eliminarndData() throws IOException {// Crear una instancia de la clase Controller
-        Controller controller = new Controller();
+        Controller_ndData controllerNdData = new Controller_ndData();
         // Crear un ID único para la prueba
         UUID id = UUID.fromString("ce39358c-9312-457d-b57c-2b7f823042d9"); // Use un ID existente de sus datos
 
         // Llamar al método eliminarndData() con el ID de los datos de prueba
-        controller.eliminarndData(id);
+        controllerNdData.eliminarndData(id);
         // Recuperar los datos actualizados utilizando el método ndData()
-        List<ndData> result = controller.ndData();
+        List<ndData> result = controllerNdData.ndData();
 
         // Verificar que los datos recuperados no contienen los datos de prueba
         boolean isDeleted = true;
@@ -79,7 +81,7 @@ class ControllerTest {
     @Test
     void agregarndData() throws IOException {
         // Crear una instancia de la clase Controller
-        Controller controller = new Controller();
+        Controller_ndData controllerNdData = new Controller_ndData();
 
         // Crear una instancia de ndData con datos de prueba
         ndData testData = new ndData();
@@ -94,9 +96,9 @@ class ControllerTest {
         testData.setUpperCIB(15.4f);
         testData.setFlag("TestFlag");
         // Llamar al método agregarndData() con los datos de prueba
-        controller.agregarndData(testData);
+        controllerNdData.agregarndData(testData);
         // Recuperar los datos actualizados utilizando el método ndData()
-        List<ndData> result = controller.ndData();
+        List<ndData> result = controllerNdData.ndData();
         // Verificar que los datos recuperados contienen los datos de prueba
         boolean isAdded = false;
         for (ndData data : result) {
@@ -112,8 +114,8 @@ class ControllerTest {
 
     @Test
     void msCode() {
-        Controller controller = new Controller();
-        List<ndData> result = controller.MsCode();
+        Controller_ndData controllerNdData = new Controller_ndData();
+        List<ndData> result = controllerNdData.MsCode();
         assertNotNull(result);
         assertTrue(result instanceof List);
         assertTrue(result.get(0) instanceof ndData);

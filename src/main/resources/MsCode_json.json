@@ -7029,6 +7029,17 @@
     "flag": ""
   },
   {
+    "_id": "89374ad7-17fe-4735-8904-54722fbb99df",
+    "mscode": "TestMsCode",
+    "year": "2007",
+    "estCode": "Prueba",
+    "estimate": 14.0,
+    "se": 1.3,
+    "lowerCIB": 12.7,
+    "upperCIB": 15.4,
+    "flag": "TestFlag"
+  },
+  {
     "_id": "25b320bd-4f32-4c98-bc6a-d942cfad74ee",
     "mscode": "Wedgefield",
     "year": "2007",

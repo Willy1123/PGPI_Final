@@ -1,0 +1,72 @@
+[
+    {
+      "id": 1,
+      "name": "Agua embotellada",
+      "stock": 500,
+      "description": "Agua purificada en botellas de 1 litro.",
+      "expiration_date": "2025-06-01"
+    },
+    {
+      "id": 2,
+      "name": "Comida enlatada",
+      "stock": 300,
+      "description": "Conservas de alimentos variados como frijoles, maíz y sopas.",
+      "expiration_date": "2024-12-31"
+    },
+    {
+      "id": 3,
+      "name": "Botiquín de primeros auxilios",
+      "stock": 100,
+      "description": "Contiene suministros médicos básicos como vendas, alcohol y tijeras.",
+      "expiration_date": "2026-01-01"
+    },
+    {
+      "id": 4,
+      "name": "Mantas",
+      "stock": 200,
+      "description": "Mantas de lana para uso en climas fríos.",
+      "expiration_date": null
+    },
+    {
+      "id": 5,
+      "name": "Ropa de abrigo",
+      "stock": 150,
+      "description": "Conjuntos de ropa para clima frío, incluyendo chaquetas y guantes.",
+      "expiration_date": null
+    },
+    {
+      "id": 6,
+      "name": "Artículos de higiene personal",
+      "stock": 400,
+      "description": "Incluye jabón, pasta dental, cepillos de dientes, y desodorante.",
+      "expiration_date": "2025-09-30"
+    },
+    {
+      "id": 7,
+      "name": "Linternas",
+      "stock": 80,
+      "description": "Linternas portátiles con baterías incluidas.",
+      "expiration_date": null
+    },
+    {
+      "id": 8,
+      "name": "Baterías",
+      "stock": 120,
+      "description": "Baterías alcalinas AA para dispositivos electrónicos.",
+      "expiration_date": "2027-03-15"
+    },
+    {
+      "id": 9,
+      "name": "Pañales",
+      "stock": 250,
+      "description": "Pañales desechables para bebés y niños pequeños.",
+      "expiration_date": "2025-10-15"
+    },
+    {
+      "id": 10,
+      "name": "Almohadas",
+      "stock": 90,
+      "description": "Almohadas de algodón para mayor comodidad.",
+      "expiration_date": null
+    }
+  ]
