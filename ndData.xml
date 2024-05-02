@@ -1,0 +1,11 @@
+<ndData>
+    <id>UUID</id>
+    <msCode>MS_CODE</msCode>
+    <year>YEAR</year>
+    <estCode>EST_CODE</estCode>
+    <estimate>ESTIMATE</estimate>
+    <se>SE</se>
+    <lowerCIB>LOWER_CIB</lowerCIB>
+    <upperCIB>UPPER_CIB</upperCIB>
+    <flag>FLAG</flag>
+</ndData>

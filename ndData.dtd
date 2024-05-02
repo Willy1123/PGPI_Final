@@ -1,0 +1,10 @@
+<!ELEMENT ndData (id, msCode, year, estCode, estimate, se, lowerCIB, upperCIB, flag)>
+        <!ELEMENT id (#PCDATA)>
+        <!ELEMENT msCode (#PCDATA)>
+        <!ELEMENT year (#PCDATA)>
+        <!ELEMENT estCode (#PCDATA)>
+        <!ELEMENT estimate (#PCDATA)>
+        <!ELEMENT se (#PCDATA)>
+        <!ELEMENT lowerCIB (#PCDATA)>
+        <!ELEMENT upperCIB (#PCDATA)>
+        <!ELEMENT flag (#PCDATA)>
