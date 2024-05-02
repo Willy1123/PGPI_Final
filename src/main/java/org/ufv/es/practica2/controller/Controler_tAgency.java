@@ -50,9 +50,9 @@ public class Controler_tAgency {
 
 
         for (Tuple tuple : request) { // request
-            UUID id = tuple.getId(); // cada item
+            String name = tuple.getName(); // cada item
             for (Products item : stock) {
-                if (item.getId().equals(id)) { // buscamos en inventario
+                if (item.getName().equals(name)) { // buscamos en inventario
                     if (item.getStock() >= tuple.getQuantity()) { // si hay stock
                         valid.add(tuple); // lo añadimos a la salida
                     }

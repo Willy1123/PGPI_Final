@@ -31,7 +31,7 @@ public class tAgency {
 
     private String dirr;
 
-    private List items;
+    private List<Tuple> items;
 
     private Float weigth;
 

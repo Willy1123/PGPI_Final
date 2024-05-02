@@ -2,20 +2,20 @@ package org.ufv.es.practica2.domain;
 import java.util.UUID;
 
 public class Tuple {
-    private UUID id;
+    private String name;
     private int quantity;
 
     public Tuple() {
 
     }
 
-    public Tuple(UUID id, int quantity) {
-        this.id = id;
+    public Tuple(String name, int quantity) {
+        this.name = name;
         this.quantity = quantity;
     }
 
-    public UUID getId() {
-        return id;
+    public String getName() {
+        return name;
     }
 
     public int getQuantity() {
