@@ -3,7 +3,7 @@ package org.ufv.es.practica2.domain;
 public class Accounts {
     private String username;
     private String password;
-    private String Role;
+    private String role;
 
     public Accounts() {
 
@@ -12,7 +12,7 @@ public class Accounts {
     public Accounts(String username, String password, String role) {
         this.username = username;
         this.password = password;
-        Role = role;
+        this.role = role;
     }
 
     public String getUsername() {
@@ -32,11 +32,11 @@ public class Accounts {
     }
 
     public String getRole() {
-        return Role;
+        return role;
     }
 
     public void setRole(String role) {
-        Role = role;
+        this.role = role;
     }
 
 
