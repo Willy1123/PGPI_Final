@@ -1,8 +1,12 @@
 package org.ufv.es.practica2.domain;
+import com.google.gson.annotations.SerializedName;
+
 import java.util.UUID;
 
 public class Tuple {
-    private String name;
+    @SerializedName("productName")
+    private String productName;
+    @SerializedName("quantity")
     private int quantity;
 
     public Tuple() {
@@ -10,20 +14,20 @@ public class Tuple {
     }
 
     public Tuple(String name, int quantity) {
-        this.name = name;
+        this.productName = name;
         this.quantity = quantity;
     }
 
-    public String getName() {
-        return name;
+    public String getProductName() {
+        return productName;
+    }
+
+    public void setProductName(String productName) {
+        this.productName = productName;
     }
 
     public int getQuantity() {
         return quantity;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public void setQuantity(int quantity) {

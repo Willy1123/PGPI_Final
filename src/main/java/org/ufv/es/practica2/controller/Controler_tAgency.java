@@ -56,6 +56,15 @@ public class Controler_tAgency {
         return listadatos;
     }
 
+    @GetMapping("/Pedidos") // Buscar producto por nombre para ponerlo en la lista
+    public List<tAgency> showRequests() throws IOException {
+        List<tAgency> listadatos;
+
+        tAgency pedido = new tAgency();
+        listadatos= new LectorJSON().leerJSON_Pedidos(Config.Ruta_Pedidos);
+        //pedido.ordenarPorUltimoElemento(listadatos);
+        return listadatos;
+    }
 
     public List<Tuple> check_stock(List<Tuple> request) {
         List<Products> stock = new LectorJSON().leerJSON_Products(Config.Ruta_ProductsJson);
@@ -63,7 +72,7 @@ public class Controler_tAgency {
 
 
         for (Tuple tuple : request) { // request
-            String name = tuple.getName(); // cada item
+            String name = tuple.getProductName(); // cada item
             for (Products item : stock) {
                 if (item.getName().equals(name)) { // buscamos en inventario
                     if (item.getStock() >= tuple.getQuantity()) { // si hay stock
@@ -200,7 +209,7 @@ public class Controler_tAgency {
 
             document.add(new Paragraph("Productos:"));
             for (Tuple temp : request.getItems()) {
-                document.add(new Paragraph("Producto: " + temp.getName() + ", cantidad: " + temp.getQuantity()));
+                document.add(new Paragraph("Producto: " + temp.getProductName() + ", cantidad: " + temp.getQuantity()));
             }
             document.add(new Paragraph("Unidades totales: " + request.getUnits()));
             document.add(new Paragraph("Peso: " + request.getWeigth()));
@@ -236,7 +245,7 @@ public class Controler_tAgency {
 
                     document.add(new Paragraph("Productos:"));
                     for (Tuple temp : request.getItems()) {
-                        document.add(new Paragraph("Producto: " + temp.getName() + ", cantidad: " + temp.getQuantity()));
+                        document.add(new Paragraph("Producto: " + temp.getProductName() + ", cantidad: " + temp.getQuantity()));
                     }
                     break;
                 case "UPS":

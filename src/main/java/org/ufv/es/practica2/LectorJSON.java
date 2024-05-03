@@ -1,14 +1,16 @@
 package org.ufv.es.practica2;
 
 import com.google.gson.Gson;
-import org.ufv.es.practica2.domain.Products;
-import org.ufv.es.practica2.domain.ndData;
-import org.ufv.es.practica2.domain.Accounts;
+import com.google.gson.reflect.TypeToken;
+import org.ufv.es.practica2.domain.*;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class LectorJSON {
     public static List leerJSON_ndData(String nombrefich){
@@ -103,5 +105,14 @@ public class LectorJSON {
         }
         return accountsList;
     }
+
+    public static List<tAgency> leerJSON_Pedidos(String filePath) throws IOException {
+        try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
+            Gson gson = new Gson();
+            TypeToken<List<tAgency>> token = new TypeToken<List<tAgency>>() {};
+            return gson.fromJson(br, token.getType());
+        }
+    }
+
 
 }
