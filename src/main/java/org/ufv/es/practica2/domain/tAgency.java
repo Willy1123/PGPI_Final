@@ -1,10 +1,13 @@
 package org.ufv.es.practica2.domain;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.google.gson.annotations.SerializedName;
+import org.ufv.es.practica2.Config;
 
-import java.util.List;
-import java.util.UUID;
-import java.util.Date;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.*;
 import java.time.format.DateTimeFormatter;
 
 public class tAgency {
@@ -19,45 +22,47 @@ public class tAgency {
         FEDEX, cantidad de unidades total en la entrega
     */
 
-
-
+    @SerializedName("date")
     private String date; // De aqui tambien se sacará la hora de ser necesario (DHL)
-
+    @SerializedName("type")
     private Boolean type; // 0 estandar, 1 urgente
-
+    @SerializedName("id")
     private UUID id;
-
+    @SerializedName("name")
     private String name;
-
+    @SerializedName("dir")
     private String dirr;
-
+    @SerializedName("items")
     private List<Tuple> items;
-
+    @SerializedName("weigth")
     private Float weigth;
-
+    @SerializedName("postal")
     private String postal;
-
+    @SerializedName("units")
     private Integer units;
-
+    @SerializedName("zone")
     private String zone;
-
+    @SerializedName("state")
     private String state;
+    @SerializedName("agency")
+    private String agency;
 
     public tAgency() {
     }
 
-    public tAgency(String  date, Boolean type, UUID id, String name, String dirr, List items, Float weigth, String postal, Integer units, String zone, String state) {
-        this.date = date;
-        this.type = type;
-        this.id = id;
-        this.name = name;
-        this.dirr = dirr;
-        this.items = items;
-        this.weigth = weigth;
-        this.postal = postal;
-        this.units = units;
-        this.zone = zone;
+    public tAgency(String  date, Boolean type, UUID id, String name, String dirr, List items, Float weigth, String postal, Integer units, String zone, String state, String agency) {
+        this.date = date;//
+        this.type = type;//
+        this.id = id;//
+        this.name = name;//
+        this.dirr = dirr;//
+        this.items = items;//
+        this.weigth = weigth;//
+        this.postal = postal;//
+        this.units = units;//
+        this.zone = zone;//
         this.state = state;
+        this.agency = agency;
     }
 
     public String  getDate() {
@@ -100,7 +105,7 @@ public class tAgency {
         this.dirr = dirr;
     }
 
-    public List getItems() {
+    public List<Tuple> getItems() {
         return items;
     }
 
@@ -146,6 +151,30 @@ public class tAgency {
 
     public void setState(String state) {
         this.state = state;
+    }
+
+    public String getAgency() {
+        return agency;
+    }
+
+    public void setAgency(String agency) {
+        this.agency = agency;
+    }
+
+    public static void ordenarPorUltimoElemento(List<tAgency> listaPedidos) {
+        // Invertimos el orden de la lista
+        Collections.reverse(listaPedidos);
+
+        // Guardamos la lista invertida en el archivo MsCode_json.json
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        String json = gson.toJson(listaPedidos);
+        try {
+            FileWriter writer = new FileWriter(Config.Ruta_ProductsJson_bkp);
+            writer.write(json);
+            writer.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
 }

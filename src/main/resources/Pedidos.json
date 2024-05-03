@@ -1,0 +1,117 @@
+[
+  {
+    "date": "2024-05-10T14:30:00",
+    "type": true,
+    "id": "f81d4fae-7dec-11d0-a765-00a0c91e6bf6",
+    "name": "Pedido #1",
+    "dir": "123 King Street, Sydney, NSW 2000, Australia",
+    "items": [
+      {
+        "productName": "Producto A",
+        "quantity": 10
+      },
+      {
+        "productName": "Producto B",
+        "quantity": 5
+      }
+    ],
+    "weigth": 15.5,
+    "postal": "2000",
+    "units": 15,
+    "zone": "NSW",
+    "state": "en tránsito",
+    "agency": "DHL"
+  },
+  {
+    "date": "2024-06-01T10:00:00",
+    "type": false,
+    "id": "b12345c6-7890-1234-5678-90abcdef1234",
+    "name": "Pedido #2",
+    "dir": "1 Queen Victoria Building, Sydney, NSW 2000, Australia",
+    "items": [
+      {
+        "productName": "Producto C",
+        "quantity": 20
+      },
+      {
+        "productName": "Producto D",
+        "quantity": 10
+      }
+    ],
+    "weigth": 25.0,
+    "postal": "2000",
+    "units": 30,
+    "zone": "NSW",
+    "state": "pendiente",
+    "agency": "DHL"
+  },
+  {
+    "date": "2024-07-15T12:15:00",
+    "type": true,
+    "id": "c12345d6-7890-1234-5678-90abcdef1234",
+    "name": "Pedido #3",
+    "dir": "50 Collins Street, Melbourne, VIC 3000, Australia",
+    "items": [
+      {
+        "productName": "Producto E",
+        "quantity": 15
+      },
+      {
+        "productName": "Producto F",
+        "quantity": 8
+      }
+    ],
+    "weigth": 23.5,
+    "postal": "3000",
+    "units": 23,
+    "zone": "VIC",
+    "state": "en proceso",
+    "agency": "UPS"
+  },
+  {
+    "date": "2024-08-20T08:30:00",
+    "type": false,
+    "id": "d12345e6-7890-1234-5678-90abcdef1234",
+    "name": "Pedido #4",
+    "dir": "120 George Street, Brisbane, QLD 4000, Australia",
+    "items": [
+      {
+        "productName": "Producto G",
+        "quantity": 25
+      },
+      {
+        "productName": "Producto H",
+        "quantity": 12
+      }
+    ],
+    "weigth": 37.0,
+    "postal": "4000",
+    "units": 37,
+    "zone": "QLD",
+    "state": "entregado",
+    "agency": "UPS"
+  },
+  {
+    "date": "2024-09-05T16:45:00",
+    "type": true,
+    "id": "e12345f6-7890-1234-5678-90abcdef1234",
+    "name": "Pedido #5",
+    "dir": "10 St George's Terrace, Perth, WA 6000, Australia",
+    "items": [
+      {
+        "productName": "Producto I",
+        "quantity": 30
+      },
+      {
+        "productName": "Producto J",
+        "quantity": 18
+      }
+    ],
+    "weigth": 48.0,
+    "postal": "6000",
+    "units": 48,
+    "zone": "WA",
+    "state": "en tránsito",
+    "agency": "FedEx"
+  }
+]
