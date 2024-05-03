@@ -43,21 +43,24 @@ public class tAgency {
 
     private String state;
 
+    private String agency;
+
     public tAgency() {
     }
 
-    public tAgency(String  date, Boolean type, UUID id, String name, String dirr, List items, Float weigth, String postal, Integer units, String zone, String state) {
-        this.date = date;
-        this.type = type;
-        this.id = id;
-        this.name = name;
-        this.dirr = dirr;
-        this.items = items;
-        this.weigth = weigth;
-        this.postal = postal;
-        this.units = units;
-        this.zone = zone;
+    public tAgency(String  date, Boolean type, UUID id, String name, String dirr, List items, Float weigth, String postal, Integer units, String zone, String state, String agency) {
+        this.date = date;//
+        this.type = type;//
+        this.id = id;//
+        this.name = name;//
+        this.dirr = dirr;//
+        this.items = items;//
+        this.weigth = weigth;//
+        this.postal = postal;//
+        this.units = units;//
+        this.zone = zone;//
         this.state = state;
+        this.agency = agency;
     }
 
     public String  getDate() {
@@ -100,7 +103,7 @@ public class tAgency {
         this.dirr = dirr;
     }
 
-    public List getItems() {
+    public List<Tuple> getItems() {
         return items;
     }
 
@@ -146,6 +149,14 @@ public class tAgency {
 
     public void setState(String state) {
         this.state = state;
+    }
+
+    public String getAgency() {
+        return agency;
+    }
+
+    public void setAgency(String agency) {
+        this.agency = agency;
     }
 
 }
