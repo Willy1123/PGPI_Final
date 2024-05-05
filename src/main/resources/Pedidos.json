@@ -3,7 +3,7 @@
     "date": "2024-05-10T14:30:00",
     "type": true,
     "id": "f81d4fae-7dec-11d0-a765-00a0c91e6bf6",
-    "name": "Pedido #1",
+    "nameCampaign": "Cooma",
     "dir": "123 King Street, Sydney, NSW 2000, Australia",
     "items": [
       {
@@ -26,7 +26,7 @@
     "date": "2024-06-01T10:00:00",
     "type": false,
     "id": "b12345c6-7890-1234-5678-90abcdef1234",
-    "name": "Pedido #2",
+    "nameCampaign": "Derby",
     "dir": "1 Queen Victoria Building, Sydney, NSW 2000, Australia",
     "items": [
       {
@@ -49,7 +49,7 @@
     "date": "2024-07-15T12:15:00",
     "type": true,
     "id": "c12345d6-7890-1234-5678-90abcdef1234",
-    "name": "Pedido #3",
+    "nameCampaign": "Bairnsdale",
     "dir": "50 Collins Street, Melbourne, VIC 3000, Australia",
     "items": [
       {
@@ -72,7 +72,7 @@
     "date": "2024-08-20T08:30:00",
     "type": false,
     "id": "d12345e6-7890-1234-5678-90abcdef1234",
-    "name": "Pedido #4",
+    "nameCampaign": "Melbourne",
     "dir": "120 George Street, Brisbane, QLD 4000, Australia",
     "items": [
       {
@@ -95,7 +95,7 @@
     "date": "2024-09-05T16:45:00",
     "type": true,
     "id": "e12345f6-7890-1234-5678-90abcdef1234",
-    "name": "Pedido #5",
+    "nameCampaign": "Perth",
     "dir": "10 St George's Terrace, Perth, WA 6000, Australia",
     "items": [
       {

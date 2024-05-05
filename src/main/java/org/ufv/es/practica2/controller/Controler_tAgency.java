@@ -14,9 +14,8 @@ import org.ufv.es.practica2.domain.Tuple;
 import java.io.IOException;
 import java.time.LocalDateTime;
 import java.util.List;
-import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.UUID;
+
 import com.itextpdf.text.Document;
 import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Paragraph;
@@ -64,6 +63,34 @@ public class Controler_tAgency {
         listadatos= new LectorJSON().leerJSON_Pedidos(Config.Ruta_Pedidos);
         //pedido.ordenarPorUltimoElemento(listadatos);
         return listadatos;
+    }
+
+    @GetMapping("/Pedidos/New")
+    public List<tAgency> pedidosByNew() throws IOException {
+        List<tAgency> lista1;
+        List<tAgency> lista2;
+        tAgency pedidos = new tAgency();
+        //Primero leo el archivo con todos los datos para reordenarlos en caso de que haya habido cambios o creaciones de nuevos objetos
+        lista1 = new LectorJSON().leerJSON_Pedidos(Config.Ruta_Pedidos);
+        pedidos.ordenarPorUltimoElemento(lista1);
+        //leo el archivo json con los datos ya reordenados para mandarselo al frontend
+        lista2 = new LectorJSON().leerJSON_Products(Config.Ruta_Pedidos_bkp);
+        return lista2;
+    }
+
+    //Metodo post crea una petición para añadir un nuevo elemento a la lista
+    //y lo guarda en el archivo json
+    @PostMapping("/Pedidos")
+    public void addPedido(@RequestBody tAgency newPedido) throws IOException {
+        List<tAgency> listadatos;
+        listadatos = new LectorJSON().leerJSON_Pedidos(Config.Ruta_Pedidos);
+        newPedido.setId();
+
+        // agregar el nuevo elemento a la lista
+        listadatos.add(newPedido);
+        // reescribir el archivo json
+        GuardarJSON guardado = new GuardarJSON();
+        guardado.guardarJSON_pedidos(Config.Ruta_Pedidos, listadatos);
     }
 
     public List<Tuple> check_stock(List<Tuple> request) {
@@ -134,10 +161,10 @@ public class Controler_tAgency {
                 Save.setDate(now.format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss")));
         }
         Save.setType(newRequest.getType());
-        Save.setId(UUID.randomUUID());
-        Save.setName(newRequest.getName());
+        Save.setId();
+        Save.setNameCampaign(newRequest.getNameCampaign());
         Save.setAgency(newRequest.getAgency());
-        Save.setDirr(newRequest.getDirr());
+        Save.setDir(newRequest.getDir());
 
         List<Tuple> before_items = check_stock(newRequest.getItems());
         Integer before_units = 0;
@@ -201,8 +228,8 @@ public class Controler_tAgency {
             }
 
             document.add(new Paragraph("Zona: " + request.getZone()));
-            document.add(new Paragraph("Nombre: " + request.getName()));
-            document.add(new Paragraph("Dirección: " + request.getDirr()));
+            document.add(new Paragraph("Nombre: " + request.getNameCampaign()));
+            document.add(new Paragraph("Dirección: " + request.getDir()));
             document.add(new Paragraph("Código postal: " + request.getPostal()));
             document.add(new Paragraph("Tipo: " + request.getType()));
             document.add(new Paragraph("")); // Espacio
@@ -240,8 +267,8 @@ public class Controler_tAgency {
                     document.add(new Paragraph("Fecha de pedido: " + request.getDate()));
                     document.add(new Paragraph("Tipo: " + request.getType()));
                     document.add(new Paragraph("ID del pedido: " + request.getId()));
-                    document.add(new Paragraph("Nombre: " + request.getName()));
-                    document.add(new Paragraph("Dirección: " + request.getDirr()));
+                    document.add(new Paragraph("Nombre: " + request.getNameCampaign()));
+                    document.add(new Paragraph("Dirección: " + request.getDir()));
 
                     document.add(new Paragraph("Productos:"));
                     for (Tuple temp : request.getItems()) {
@@ -252,16 +279,16 @@ public class Controler_tAgency {
                     document.add(new Paragraph("Fecha de llegada: " + request.getDate()));
                     document.add(new Paragraph("Tipo: " + request.getType()));
                     document.add(new Paragraph("ID del pedido: " + request.getId()));
-                    document.add(new Paragraph("Nombre: " + request.getName()));
-                    document.add(new Paragraph("Dirección: " + request.getDirr()));
+                    document.add(new Paragraph("Nombre: " + request.getNameCampaign()));
+                    document.add(new Paragraph("Dirección: " + request.getDir()));
                     document.add(new Paragraph("Peso: " + request.getWeigth()));
                     break;
                 case "FEDEX":
                     document.add(new Paragraph("Fecha de pedido: " + request.getDate()));
                     document.add(new Paragraph("Tipo: " + request.getType()));
                     document.add(new Paragraph("ID del pedido: " + request.getId()));
-                    document.add(new Paragraph("Nombre: " + request.getName()));
-                    document.add(new Paragraph("Dirección: " + request.getDirr()));
+                    document.add(new Paragraph("Nombre: " + request.getNameCampaign()));
+                    document.add(new Paragraph("Dirección: " + request.getDir()));
 
                     document.add(new Paragraph("Código postal: " + request.getPostal()));
                     document.add(new Paragraph("Peso: " + request.getWeigth()));
