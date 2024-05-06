@@ -147,7 +147,7 @@ public class Controler_tAgency {
         GuardarJSON guardado = new GuardarJSON();
         guardado.guardarJSON_pedidos(Config.Ruta_Pedidos, listadatos);
         //imprimir_albarán(newPedido);
-        imprimir_etiqueta(Save);
+        //imprimir_etiqueta(Save);
     }
 
     public List<Tuple> check_stock(List<Tuple> request) {
