@@ -82,15 +82,72 @@ public class Controler_tAgency {
     //y lo guarda en el archivo json
     @PostMapping("/Pedidos")
     public void addPedido(@RequestBody tAgency newPedido) throws IOException {
+        LocalDateTime now = LocalDateTime.now();
         List<tAgency> listadatos;
         listadatos = new LectorJSON().leerJSON_Pedidos(Config.Ruta_Pedidos);
         newPedido.setId();
+        tAgency Save = new tAgency();
+
+        switch (newPedido.getAgency()) {
+            case "DHL":
+                Save.setDate(now.format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss")));
+                break;
+            case "UPS":
+                List<ndData> pobs = new LectorJSON().leerJSON_ndData(Config.Ruta_ndDataJson);
+                for (int i = 0; i < pobs.size(); i++) {
+                    if (pobs.get(i).getMsCode().equals(newPedido.getZone())) {
+                        now = now.plusDays((int) pobs.get(i).getEstimate().floatValue());
+                    }
+                }
+                if (newPedido.getType() == Boolean.FALSE) {
+                    Save.setDate(now.plusDays(3).format(DateTimeFormatter.ofPattern("dd/MM/yyyy")));
+                } else {
+                    Save.setDate(now.plusDays(1).format(DateTimeFormatter.ofPattern("dd/MM/yyyy")));
+                }
+                break;
+            case "FedEX":
+                Save.setDate(now.format(DateTimeFormatter.ofPattern("dd/MM/yyyy")));
+                break;
+            default:
+                System.out.println("Agencia de transporte mal especificada, se guardará solo la fecha y hora de pedido");
+                Save.setDate(now.format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss")));
+        }
+        Save.setType(newPedido.getType());
+        Save.setId();
+        Save.setNameCampaign(newPedido.getNameCampaign());
+        Save.setAgency(newPedido.getAgency());
+        Save.setDir(newPedido.getDir());
+
+        List<Tuple> before_items = check_stock(newPedido.getItems());
+        Integer before_units = 0;
+        for (Tuple item : before_items) {
+            before_units += item.getQuantity();
+        }
+
+        List<Tuple> items = check_stock(newPedido.getItems());
+        Save.setItems(items);
+
+        Integer units = 0;
+        Float weigth = Float.valueOf(0);
+        for (Tuple item : items) {
+            units += item.getQuantity();
+        }
+        if (before_units == units) {
+            Save.setState("Listo y completo");
+        } else {
+            Save.setState("Listo y faltante");
+        }
+
+        Save.setPostal(newPedido.getPostal());
+        Save.setUnits(units);
 
         // agregar el nuevo elemento a la lista
         listadatos.add(newPedido);
         // reescribir el archivo json
         GuardarJSON guardado = new GuardarJSON();
         guardado.guardarJSON_pedidos(Config.Ruta_Pedidos, listadatos);
+        //imprimir_albarán(newPedido);
+        imprimir_etiqueta(Save);
     }
 
     public List<Tuple> check_stock(List<Tuple> request) {
