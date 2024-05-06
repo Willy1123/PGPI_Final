@@ -8,7 +8,6 @@ import org.ufv.es.practica2.Config;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.*;
-import java.time.format.DateTimeFormatter;
 
 public class tAgency {
     /*
@@ -28,10 +27,10 @@ public class tAgency {
     private Boolean type; // 0 estandar, 1 urgente
     @SerializedName("id")
     private UUID id;
-    @SerializedName("name")
-    private String name;
+    @SerializedName("nameCampaign")
+    private String nameCampaign;
     @SerializedName("dir")
-    private String dirr;
+    private String dir;
     @SerializedName("items")
     private List<Tuple> items;
     @SerializedName("weigth")
@@ -50,12 +49,12 @@ public class tAgency {
     public tAgency() {
     }
 
-    public tAgency(String  date, Boolean type, UUID id, String name, String dirr, List items, Float weigth, String postal, Integer units, String zone, String state, String agency) {
+    public tAgency(String  date, Boolean type, UUID id, String nameCampaign, String dir, List items, Float weigth, String postal, Integer units, String zone, String state, String agency) {
         this.date = date;//
         this.type = type;//
         this.id = id;//
-        this.name = name;//
-        this.dirr = dirr;//
+        this.nameCampaign = nameCampaign;//
+        this.dir = dir;//
         this.items = items;//
         this.weigth = weigth;//
         this.postal = postal;//
@@ -85,24 +84,24 @@ public class tAgency {
         return id;
     }
 
-    public void setId(UUID id) {
-        this.id = id;
+    public void setId() {
+        this.id = UUID.randomUUID();
     }
 
-    public String getName() {
-        return name;
+    public String getNameCampaign() {
+        return nameCampaign;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setNameCampaign(String nameCampaign) {
+        this.nameCampaign = nameCampaign;
     }
 
-    public String getDirr() {
-        return dirr;
+    public String getDir() {
+        return dir;
     }
 
-    public void setDirr(String dirr) {
-        this.dirr = dirr;
+    public void setDir(String dir) {
+        this.dir = dir;
     }
 
     public List<Tuple> getItems() {
@@ -169,7 +168,7 @@ public class tAgency {
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
         String json = gson.toJson(listaPedidos);
         try {
-            FileWriter writer = new FileWriter(Config.Ruta_ProductsJson_bkp);
+            FileWriter writer = new FileWriter(Config.Ruta_Pedidos_bkp);
             writer.write(json);
             writer.close();
         } catch (IOException e) {
