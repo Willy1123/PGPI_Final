@@ -117,6 +117,8 @@ public class Controler_tAgency {
         Save.setNameCampaign(newPedido.getNameCampaign());
         Save.setAgency(newPedido.getAgency());
         Save.setDir(newPedido.getDir());
+        Save.setType(newPedido.getType());
+        Save.setZone(newPedido.getZone());
 
         List<Tuple> before_items = check_stock(newPedido.getItems());
         Integer before_units = 0;
@@ -138,16 +140,18 @@ public class Controler_tAgency {
             Save.setState("Listo y faltante");
         }
 
+        Save.setWeigth(weigth);
+        Save.setZone(newPedido.getZone());
         Save.setPostal(newPedido.getPostal());
         Save.setUnits(units);
 
         // agregar el nuevo elemento a la lista
-        listadatos.add(newPedido);
+        listadatos.add(Save);
         // reescribir el archivo json
         GuardarJSON guardado = new GuardarJSON();
         guardado.guardarJSON_pedidos(Config.Ruta_Pedidos, listadatos);
-        //imprimir_albarán(newPedido);
-        //imprimir_etiqueta(Save);
+        imprimir_albarán(Save);
+        imprimir_etiqueta(Save);
     }
 
     public List<Tuple> check_stock(List<Tuple> request) {
@@ -296,7 +300,7 @@ public class Controler_tAgency {
                 document.add(new Paragraph("Producto: " + temp.getProductName() + ", cantidad: " + temp.getQuantity()));
             }
             document.add(new Paragraph("Unidades totales: " + request.getUnits()));
-            document.add(new Paragraph("Peso: " + request.getWeigth()));
+            document.add(new Paragraph("Peso: " + 200 * request.getUnits()));
             document.add(new Paragraph("Estado del pedido: " + request.getState()));
 
             // Cerrar el documento
@@ -313,7 +317,7 @@ public class Controler_tAgency {
 
         try {
             // Configurar PdfWriter para escribir en el documento
-            PdfWriter.getInstance(document, new FileOutputStream( ("albaran_" + request.getId().toString() + ".pdf") ));
+            PdfWriter.getInstance(document, new FileOutputStream( ("etiqueta" + request.getId().toString() + ".pdf") ));
 
             // Abrir el documento para escribir
             document.open();

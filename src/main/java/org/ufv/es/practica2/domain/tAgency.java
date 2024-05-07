@@ -108,7 +108,7 @@ public class tAgency {
         return items;
     }
 
-    public void setItems(List items) {
+    public void setItems(List<Tuple> items) {
         this.items = items;
     }
 
